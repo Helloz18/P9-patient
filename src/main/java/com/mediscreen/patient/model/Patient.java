@@ -1,14 +1,9 @@
 package com.mediscreen.patient.model;
-import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import org.hibernate.annotations.DynamicUpdate;
 
 
 /**
@@ -21,28 +16,14 @@ import org.hibernate.annotations.DynamicUpdate;
  *- numéro de téléphone
  */
 @Entity
-@DynamicUpdate
 public class Patient {
-
-
-// LocalDate today = LocalDate.now();                          //Today's date
-// LocalDate birthday = LocalDate.of(1960, Month.JANUARY, 1);  //Birth date
- 
-// Period p = Period.between(birthday, today);
- 
-// //Now access the values as below
-// System.out.println(p.getDays());
-// System.out.println(p.getMonths());
-// System.out.println(p.getYears());
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String firstName;
     private String lastName;
-   // @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-   // private LocalDate birthday;
-   private String birthdate;
+    private String birthdate;
     private String gender;
     private String address;
     private String phoneNumber;
@@ -54,7 +35,6 @@ public class Patient {
     String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
-        //this.birthday = birthday;
         this.birthdate = birthdate;
         this.gender = gender;
         this.address = address;
@@ -81,12 +61,6 @@ public class Patient {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    // public LocalDate getBirthday() {
-    //     return birthday;
-    // }
-    // public void setBirthday(LocalDate birthday) {
-    //     this.birthday = birthday;
-    // }
     public String getGender() {
         return gender;
     }
@@ -105,10 +79,6 @@ public class Patient {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
-    
-
-
     public String getBirthdate() {
         return birthdate;
     }

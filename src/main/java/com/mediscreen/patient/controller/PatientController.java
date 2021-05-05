@@ -60,7 +60,7 @@ public class PatientController {
         Patient patient = patientService.findById(id);
        
         if(patient == null) {
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.badRequest().build();
         } else {
             return ResponseEntity.ok().body(patient);
         }
@@ -72,7 +72,7 @@ public class PatientController {
         Patient patient = patientService.findById(id);
        
         if(patient == null || patientWithUpdate == null) {
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.badRequest().build();
         }
 
         patient = patientService.savePatient(patientWithUpdate);
